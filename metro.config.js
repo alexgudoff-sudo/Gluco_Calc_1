@@ -1,11 +1,16 @@
-const { getDefaultConfig } = require("expo/metro-config");
-const { withNativeWind } = require("nativewind/metro");
+const { getDefaultConfig } = require('expo/metro-config');
+const path = require('path');
 
 const config = getDefaultConfig(__dirname);
 
-module.exports = withNativeWind(config, {
-  input: "./global.css",
-  // Force write CSS to file system instead of virtual modules
-  // This fixes iOS styling issues in development mode
-  forceWriteFileSystem: true,
-});
+// Настройка алиаса @/
+config.resolver.alias = {
+  '@': path.resolve(__dirname, './'),
+};
+
+// Блокируем папку, которая вызывает ошибку SHA-1
+config.resolver.blockList = [
+  /node_modules\/react-native-css-interop\/.*/
+];
+
+module.exports = config;
