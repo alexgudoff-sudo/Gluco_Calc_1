@@ -1,0 +1,54 @@
+{
+  "cli": {
+    "version": ">= 18.0.0",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "production": {
+      "ios": {
+        "image": "latest",
+        "node": "18.18.0",
+        "npm": "9.8.1"
+      },
+      "android": {
+        "image": "latest",
+        "node": "18.18.0",
+        "npm": "9.8.1"
+      }
+    },
+    "preview": {
+      "ios": {
+        "image": "latest",
+        "node": "18.18.0",
+        "npm": "9.8.1"
+      },
+      "android": {
+        "image": "latest",
+        "node": "18.18.0",
+        "npm": "9.8.1"
+      }
+    },
+    "development": {
+      "ios": {
+        "image": "latest",
+        "node": "18.18.0",
+        "npm": "9.8.1"
+      },
+      "android": {
+        "image": "latest",
+        "node": "18.18.0",
+        "npm": "9.8.1"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "type": "app-store",
+        "appleId": "your-apple-id@example.com",
+        "ascAppId": "1234567890",
+        "appleTeamId": "ABCDEF1234"
+      }
+    }
+  }
+}

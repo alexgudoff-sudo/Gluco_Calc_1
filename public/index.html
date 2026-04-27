@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="GlucoCalc — Калькулятор глюкозы для диабетиков. Помогает рассчитать необходимую массу продукта для повышения глюкозы или дозу инсулина для её снижения.">
+  <meta name="theme-color" content="#0a7ea4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GlucoCalc">
+  <meta name="application-name" content="GlucoCalc">
+  <meta name="msapplication-TileColor" content="#0a7ea4">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png">
+  
+  <!-- Manifest и иконки -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  
+  <!-- Open Graph для соцсетей -->
+  <meta property="og:title" content="GlucoCalc">
+  <meta property="og:description" content="Калькулятор глюкозы для диабетиков">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/icon-512.png">
+  
+  <!-- Стили -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #ffffff;
+      color: #11181C;
+    }
+    
+    #root {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Splash screen */
+    .splash {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a7ea4 0%, #0a7ea4 100%);
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    
+    .splash img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .splash p {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+  </style>
+  
+  <title>GlucoCalc — Калькулятор глюкозы</title>
+</head>
+<body>
+  <div id="root">
+    <div class="splash">
+      <img src="/icon-192.png" alt="GlucoCalc">
+      <div>GlucoCalc</div>
+      <p>Загрузка...</p>
+    </div>
+  </div>
+  
+  <!-- Регистрация Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+          console.log('Service Worker зарегистрирован:', registration);
+        }).catch((error) => {
+          console.warn('Ошибка регистрации Service Worker:', error);
+        });
+      });
+    }
+  </script>
+  
+  <!-- Скрипт Expo -->
+  <script src="./index.js"></script>
+</body>
+</html>
